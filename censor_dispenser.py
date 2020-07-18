@@ -4,4 +4,8 @@ email_two = open("email_two.txt", "r").read()
 email_three = open("email_three.txt", "r").read()
 email_four = open("email_four.txt", "r").read()
 
-print(email_one)
+
+def censor_email(censored_word, replaced_with):
+    censored_email = email_one.replace(censored_word, replaced_with)
+    return censored_email
+print(censor_email('learning algorithms', 'banana'))
