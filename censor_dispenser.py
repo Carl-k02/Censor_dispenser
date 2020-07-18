@@ -16,11 +16,35 @@ proprietary_terms = ["she", "personality matrix", "sense of self",
                      "her", "herself"]
 ptcap = [ptcaps.capitalize() for ptcaps in proprietary_terms]
 pterms = proprietary_terms + ptcap 
-
+#email is the email you want to censor and new_word is the word you want to replace it with
 def censor_multiple_words(email, new_word):
    censored_email2 = email.replace(pterms[0], new_word).replace(pterms[1], new_word).replace(pterms[2], new_word).replace(pterms[3], new_word).replace(pterms[4], new_word).replace(pterms[5], new_word).replace(pterms[6], new_word).replace(pterms[7], new_word).replace(pterms[8], new_word).replace(pterms[9], new_word).replace(pterms[10], new_word).replace(pterms[11], new_word).replace(pterms[12], new_word).replace(pterms[13], new_word)
    return censored_email2
+#print(censor_multiple_words(email_two, 'banana'))
+
+# Third part, censoring negotive words from the negotive word list if 2 negative words occur one after another
+
+negative_words = ["concerned", "behind", "danger",
+                  "dangerous", "alarming", "alarmed",
+                  "out of control", "help", "unhappy",
+                  "bad", "upset", "awful", "broken", "damage",
+                  "damaging", "dismal", "distressed", "distressing",
+                  "concerning", "horrible", "horribly", "questionable"]
+
+nws = [nw.capitalize() for nw in negative_words]
+tot_neg_words = negative_words + nws
+new_listed_email_three = []
+#email is the email you want to get rid of negative words and happy_words is the word you want to replace the negative ones
+def negative_word_censor(email, happy_word):
+    smw_email3 = censor_multiple_words(email, 'banana')
+    listed_email_three = smw_email3.split()
+    for n, i in enumerate(listed_email_three):
+        for j in negative_words:
+            if i == j:
+                listed_email_three[n] = happy_word       
+    new_email_three = ' '.join(listed_email_three)
+    return new_email_three
+    
+print(negative_word_censor(email_three, "amazing"))
 
 
-print(censor_multiple_words(email_two, 'banana'))
-print(pterms)
