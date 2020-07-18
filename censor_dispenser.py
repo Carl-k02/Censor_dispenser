@@ -14,12 +14,13 @@ def censor_email(censored_word, replaced_with):
 proprietary_terms = ["she", "personality matrix", "sense of self",
                      "self-preservation", "learning algorithm",
                      "her", "herself"]
-range1 = range(len(proprietary_terms) - 1)
-email2_lower = email_two.lower()
+ptcap = [ptcaps.capitalize() for ptcaps in proprietary_terms]
+pterms = proprietary_terms + ptcap 
 
-censored_email2 = email2_lower.replace(proprietary_terms[0], "banana").replace(proprietary_terms[1], "banana").replace(proprietary_terms[2], "banana").replace(proprietary_terms[3], "banana").replace(proprietary_terms[4], "banana").replace(proprietary_terms[5], "banana").replace(proprietary_terms[6], "banana")
+def censor_multiple_words(email, new_word):
+   censored_email2 = email.replace(pterms[0], new_word).replace(pterms[1], new_word).replace(pterms[2], new_word).replace(pterms[3], new_word).replace(pterms[4], new_word).replace(pterms[5], new_word).replace(pterms[6], new_word).replace(pterms[7], new_word).replace(pterms[8], new_word).replace(pterms[9], new_word).replace(pterms[10], new_word).replace(pterms[11], new_word).replace(pterms[12], new_word).replace(pterms[13], new_word)
+   return censored_email2
 
-    
 
-print(censored_email2)
-    
+print(censor_multiple_words(email_two, 'banana'))
+print(pterms)
